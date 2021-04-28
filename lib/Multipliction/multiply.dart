@@ -2,7 +2,9 @@
 
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_calculator_app/your%20choice/users%20input.dart';
 
 class MultiplicationApp extends StatefulWidget {
   @override
@@ -19,19 +21,23 @@ class _MultiplicationAppState extends State<MultiplicationApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.amber,
-          title: Text("Multiplication App"),
+          title: Text("               * Multiplication App * "),
         ),
         body: Container(
+          padding: EdgeInsets.all(30),
           child: Column(
             children: [
               TextField(
                 controller: getnum1,
                 decoration: InputDecoration(
-                  hintText: "enter a numer",
-                  border: OutlineInputBorder()
+                  hintText: "enter a number",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20)
+                  )
                 ),
               ),
               SizedBox(height: 20.0),
@@ -40,21 +46,44 @@ class _MultiplicationAppState extends State<MultiplicationApp> {
                 controller: getnum2,
                 decoration: InputDecoration(
                   hintText: "enter another number",
-                  border: OutlineInputBorder()
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20)
+                  )
                 ),
               ),
               SizedBox(height: 20.0),
-              RaisedButton(
-                color: Colors.blue,
-                onPressed: (){
-                double getn1=double.parse(getnum1.text);
-                double getn2=double.parse(getnum2.text);
-                setState(() {
-                  result=getn1*getn2;
-                });
-              },
-              child: Text("MULTIPLY"),
+              SizedBox(
+                height: 100,
+                child:RaisedButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)
+                  ),
+                  color: Colors.blue,
+                  onPressed: (){
+                    double getn1=double.parse(getnum1.text);
+                    double getn2=double.parse(getnum2.text);
+                    setState(() {
+                      result=getn1*getn2;
+                    });
+                  },
+                  child: Text("MULTIPLY"),
+                ) ,
               ),
+              SizedBox(height: 10),
+              SizedBox(
+                height: 100,
+                child:RaisedButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)
+                  ),
+                  color: Colors.black12,
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> UsersInput()));
+                  },
+                  child: Text(" Back "),
+                ) ,
+              ),
+
               Text(result.toString()),
             ],
           ),

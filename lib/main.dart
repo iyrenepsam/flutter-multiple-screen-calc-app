@@ -13,8 +13,8 @@ class PrimaryCalc extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.greenAccent,
-          title: Text("PRIMARY CALCULATOR"),
+          backgroundColor: Colors.lightBlue,
+          title: Text("                PRIMARY CALCULATOR                 "),
         ),
         body:UsersInput() ,
       ),

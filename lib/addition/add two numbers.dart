@@ -3,6 +3,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_calculator_app/your%20choice/users%20input.dart';
 
 class Additionapp extends StatefulWidget {
   @override
@@ -17,12 +18,14 @@ class _AdditionappState extends State<Additionapp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black12,
-          title: Text("ADDITION"),
+          title: Text("                   +    ADDITION     +        "),
         ),
         body: Container(
+          padding: EdgeInsets.all(30),
           child: Column(
             children: [
               TextField(
@@ -32,7 +35,7 @@ class _AdditionappState extends State<Additionapp> {
                   border: OutlineInputBorder()
                 ),
               ),
-              SizedBox(height: 20.0,),
+              SizedBox(height: 20.0),
               TextField(
                 controller: getnum2,
                 decoration: InputDecoration(
@@ -40,18 +43,37 @@ class _AdditionappState extends State<Additionapp> {
                   border: OutlineInputBorder()
                 ),
               ),
-              SizedBox(height: 20.0,),
-              RaisedButton(
-                color: Colors.blueGrey,
+              SizedBox(height: 20.0),
+
+              SizedBox(
+                height: 50,
+                width: 500,
+                child: RaisedButton(
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    color: Colors.blueGrey,
                 onPressed: (){
                   double getn1=double.parse(getnum1.text);
                   double getn2=double.parse(getnum2.text);
-                  setState(() {
-                    result= getn1+getn2;
+                    setState(() {
+                  result= getn1+getn2;
                   });
+                  },
+                 child: Text("ADD",style: TextStyle(color: Colors.black),),
+              ),
+              ),
 
-              },
-              child: Text("ADD"),
+              SizedBox(
+                height:50,
+                width: 350,
+                child: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                    ),
+                    onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> UsersInput()));
+
+                      Text("Back", style: TextStyle(color: Colors.black38),);
+                    }),
               ),
               Text(result.toString()),
             ],

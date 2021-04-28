@@ -1,6 +1,8 @@
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_calculator_app/your%20choice/users%20input.dart';
 
 class Subtractapp extends StatefulWidget {
   @override
@@ -18,17 +20,20 @@ class _SubtractappState extends State<Subtractapp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.brown,
-          title: Text("SubractionApp"),
+          backgroundColor: Colors.black12,
+          title: Text("                       -  SUBTRACT -                        "),
         ),
         body: Container(
+          padding: EdgeInsets.all(20),
           child: Column(
             children: [
               TextField(
                 controller: getnum1,
                 decoration: InputDecoration(
-                  hintText: "ENTER A NUMBER",
-                  border: OutlineInputBorder()
+                  labelText: "ENTER A NUMBER",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30)
+                  )
                 ),
               ),
               SizedBox(height:20.0),
@@ -36,33 +41,48 @@ class _SubtractappState extends State<Subtractapp> {
                 controller: getnum2,
                 decoration: InputDecoration(
                   hintText: "ENTER ANOTHER NUMBER",
-                  border: OutlineInputBorder()
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30)
+                      
+                  )
                 ),
               ),
               SizedBox(height: 20.0),
 
-              RaisedButton(
-                color: Colors.blueGrey,
-                onPressed: (){
-                  double getn1=double.parse(getnum1.text);
-                  double getn2=double.parse(getnum2.text);
-                  setState(() {
-                    result=getn1-getn2;
-                  });
-                 
-              },
-              child: Text("SUBTRACT",style: TextStyle(fontSize: 20.0,color: Colors.blue)),
+              SizedBox(
+                height: 50,
+                width: 300,
+                child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50)
+                  ),
+                    color: Colors.black,
+                    onPressed: (){
+                      double getn1=double.parse(getnum1.text);
+                      double getn2=double.parse(getnum2.text);
+                      setState(() {
+                        result=getn1-getn2;
+                      });
 
+                    },
+                    child: Text("REDUCE",style: TextStyle(fontSize: 20.0,color: Colors.white70)),
+              )
               ),
-              RaisedButton(onPressed: (){
+          SizedBox(
+            height: 50,
+            width: 200,
+            child: RaisedButton(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(60)
+              ),
+                color: Colors.white70,
+                onPressed: (){
                 
-                
-                
-                Navigator.push(context, route)
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> UsersInput()));
               },
               
-              child: Text("bACK"),
-              ),
+              child: Text("GO BACK",style: TextStyle(fontSize: 20.0, color: Colors.black),),
+              )),
               Text(result.toString()),
             ],
           ),

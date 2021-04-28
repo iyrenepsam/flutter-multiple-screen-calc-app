@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_calculator_app/Multipliction/multiply.dart';
 import 'package:flutter_calculator_app/Subtraction/subtract.dart';
 import 'package:flutter_calculator_app/addition/add%20two%20numbers.dart';
@@ -16,47 +17,81 @@ class _UsersInputState extends State<UsersInput> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.black38,
+      padding: EdgeInsets.all(60),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
 
-            RaisedButton(
-              color: Colors.blueGrey,
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Additionapp()));
-              },
-              child: Text(
-                  "ADD", style: TextStyle(fontSize: 20.0, color: Colors.blue)),
-            ),
+            SizedBox(
+              height: 55,
+              width: 550,
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)
+                ),
 
-            RaisedButton(
-              color: Colors.white,
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Subtractapp()));
-              },
-              child: Text(" SUBTRACT ",
-                style: TextStyle(fontSize: 20.0, color: Colors.blueGrey),),
+                color: Colors.white30,
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Additionapp()));
+                },
+                child: Text(
+                    "ADD", style: TextStyle(fontSize: 20.0, color: Colors.pinkAccent)),
+              ),
+
             ),
-            RaisedButton(
-              color: Colors.amber,
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => MultiplicationApp()));
-              },
-              child: Text("MULTIPLY",
-                style: TextStyle(fontSize: 20.0, color: Colors.brown),),
+            SizedBox(height: 20),
+            
+            SizedBox(
+              height: 50,
+              width: 200,
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)
+                ),
+                color: Colors.white30,
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Subtractapp()));
+                },
+                child: Text(" SUBTRACT ",
+                  style: TextStyle(fontSize: 20.0, color: Colors.black),),
+              ),
             ),
-            RaisedButton(
-              color: Colors.blueGrey,
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Divisionapp()));
-              },
-              child: Text("DIVIDE",
-                style: TextStyle(fontSize: 20.0, color: Colors.white),),
-            )
+            SizedBox(height: 20),
+            SizedBox(
+              height: 40,
+              width: 150,
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)
+                ),
+                color: Colors.white30,
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => MultiplicationApp()));
+                },
+                child: Text("MULTIPLY",
+                  style: TextStyle(fontSize: 20.0, color: Colors.brown),),
+              ),
+            ),
+            SizedBox(height: 20),
+            SizedBox(
+              height: 40,
+              width: 100,
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)
+                ),
+                color: Colors.white30,
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Divisionapp()));
+                },
+                child: Text("DIVIDE",
+                  style: TextStyle(fontSize: 20.0, color: Colors.black54),),
+              ),
+            ),
           ]
       ),
 

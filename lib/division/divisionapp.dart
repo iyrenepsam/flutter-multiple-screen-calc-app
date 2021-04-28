@@ -5,6 +5,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter_calculator_app/your%20choice/users%20input.dart';
 
 class Divisionapp extends StatefulWidget {
   @override
@@ -19,13 +21,15 @@ double result=0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.brown,
-          title: Text("DivisionApp"),
-
+          title: Text("                         "
+              " / Division / "),
         ),
         body: Container(
+          padding: EdgeInsets.all(20),
           child: Column(
             children: [
               TextField(
@@ -46,7 +50,7 @@ double result=0;
               SizedBox(height: 20.0),
 
               RaisedButton(
-                color: Colors.blueGrey,
+                color: Colors.grey,
                 onPressed: (){
 
                   double getn1=double.parse(getnum1.text);
@@ -57,12 +61,24 @@ double result=0;
                   });
 
               },
-              child: Text("DIVIDE",style: TextStyle
-                (fontSize: 20.0,color: Colors.black12)),
+              child: Text("    DIVIDE   ",style: TextStyle
+                (fontSize: 20.0,color: Colors.brown)),
               ),
+
+
+
+
+
+                RaisedButton(
+
+                  color: Colors.grey,
+                  onPressed: (){
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>UsersInput()));
+                  },
+                  child: Text(" Back ", style: TextStyle(fontSize: 20)),
+                ) ,
+
               Text(result.toString()),
-
-
             ],
           ),
         ),
